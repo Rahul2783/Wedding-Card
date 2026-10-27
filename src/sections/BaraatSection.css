@@ -1,0 +1,403 @@
+/* ========================================================
+   BARAAT SECTION STYLES
+   ======================================================== */
+
+.baraat-royal-section {
+  position: relative;
+  background: radial-gradient(ellipse at 50% 50%, #430008 0%, #1e0004 100%);
+  padding: 80px 20px;
+}
+
+.baraat-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 32px;
+  align-items: stretch;
+}
+
+/* Image Card */
+.baraat-image-card {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--gold-antique);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7);
+  min-height: 380px;
+}
+
+.baraat-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.baraat-image-card:hover .baraat-img {
+  transform: scale(1.05);
+}
+
+.baraat-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(37, 0, 6, 0.95) 100%);
+}
+
+.baraat-banner-tag {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold-gradient);
+  color: var(--maroon-dark);
+  font-weight: 800;
+  font-size: 0.92rem;
+  padding: 8px 20px 6px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.baraat-banner-tag .tag-inner {
+  display: inline-block;
+  position: relative;
+  top: 1.5px;
+}
+
+/* Detail Card */
+.baraat-detail-card {
+  padding: 36px 30px 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Authentic Royal Proclamation Frame */
+.baraat-proclamation-frame {
+  position: relative;
+  background: radial-gradient(ellipse at 50% 0%, rgba(122, 8, 21, 0.55) 0%, rgba(37, 0, 6, 0.95) 100%);
+  border: 1.5px solid var(--gold-antique);
+  border-radius: var(--radius-md);
+  padding: 24px 20px 22px;
+  margin-bottom: 24px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55), inset 0 0 20px rgba(255, 216, 117, 0.08);
+}
+
+.proclamation-crest {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--gold-gradient);
+  color: var(--maroon-dark);
+  padding: 6px 20px 4px;
+  border-radius: 20px;
+  font-weight: 800;
+  font-size: 1.02rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.proclamation-bullet {
+  font-weight: 900;
+  letter-spacing: 2px;
+  font-size: 1.1rem;
+}
+
+.proclamation-heading {
+  position: relative;
+  top: 1.5px;
+  letter-spacing: 0.5px;
+}
+
+.proclamation-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.proclamation-line-top,
+.proclamation-line-bottom {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--ivory-warm);
+  margin: 0;
+  font-family: var(--font-heading);
+}
+
+.proclamation-line-top .highlight-gold {
+  color: var(--gold-bright);
+  font-weight: 700;
+}
+
+.proclamation-line-top .highlight-pill {
+  display: inline-block;
+  background: rgba(255, 216, 117, 0.16);
+  border: 1px solid var(--gold-bright);
+  color: #fff;
+  padding: 2px 10px 1px;
+  border-radius: 12px;
+  font-weight: 700;
+  margin: 0 4px;
+  position: relative;
+  top: 1px;
+}
+
+.proclamation-venue-highlight {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: rgba(67, 0, 8, 0.9);
+  border: 1.5px solid var(--gold-bright);
+  border-radius: 30px;
+  padding: 8px 24px 6px;
+  box-shadow: 0 0 16px rgba(255, 216, 117, 0.3);
+  margin: 4px 0;
+}
+
+.proclamation-venue-highlight .bracket {
+  color: var(--gold-antique);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.proclamation-venue-highlight .quotes {
+  color: var(--gold-bright);
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.proclamation-venue-highlight .venue-title-text {
+  color: var(--gold-bright);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  position: relative;
+  top: 1.5px;
+}
+
+.proclamation-line-bottom {
+  color: var(--gold-antique);
+  font-size: 1.02rem;
+}
+
+/* Quick Glance Key Details */
+.baraat-quick-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.quick-detail-item {
+  background: rgba(37, 0, 6, 0.7);
+  border: 1px solid rgba(212, 166, 74, 0.35);
+  border-radius: var(--radius-sm);
+  padding: 12px 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.quick-detail-item:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold-bright);
+}
+
+.detail-icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(122, 8, 21, 0.8);
+  border: 1px solid var(--gold-antique);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-bright);
+  flex-shrink: 0;
+}
+
+.detail-text-box {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.detail-label {
+  font-size: 0.72rem;
+  color: var(--gold-antique);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.detail-value {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--gold-bright);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+  top: 1.5px;
+}
+
+/* Timeline */
+.procession-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.timeline-node {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.node-icon-circle {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold-bright);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 14px rgba(255, 216, 117, 0.3);
+}
+
+.origin-icon {
+  background: rgba(122, 8, 21, 0.9);
+  color: var(--gold-bright);
+}
+
+.destination-icon {
+  background: var(--gold-gradient);
+  color: var(--maroon-dark);
+}
+
+.node-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.node-label {
+  font-size: 0.8rem;
+  color: var(--gold-antique);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.node-title {
+  font-size: 1.3rem;
+  color: var(--gold-bright);
+  line-height: 1.25;
+  margin: 2px 0 4px;
+}
+
+.node-address {
+  font-size: 0.95rem;
+  color: var(--ivory-warm);
+  line-height: 1.45;
+}
+
+/* Connector */
+.timeline-connector {
+  position: relative;
+  margin-left: 22px;
+  padding: 16px 0;
+}
+
+.connector-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  background: repeating-linear-gradient(
+    180deg,
+    var(--gold-bright) 0,
+    var(--gold-bright) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+}
+
+.connector-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(37, 0, 6, 0.85);
+  border: 1px solid var(--gold-antique);
+  border-radius: 14px;
+  padding: 4px 12px 3px;
+  font-size: 0.78rem;
+  color: var(--gold-bright);
+  margin-left: 20px;
+  line-height: 1.2;
+}
+
+.connector-badge .badge-text {
+  display: inline-block;
+  position: relative;
+  top: 1px;
+}
+
+.baraat-footer-note {
+  margin-top: 24px;
+  border-top: 1px solid rgba(212, 166, 74, 0.25);
+  padding-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: var(--ivory-muted);
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .baraat-content-grid {
+    grid-template-columns: 1fr;
+  }
+  .baraat-image-card {
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 600px) {
+  .baraat-royal-section {
+    padding: 50px 14px;
+  }
+  .baraat-detail-card {
+    padding: 24px 16px 20px;
+  }
+  .baraat-proclamation-frame {
+    padding: 18px 12px 16px;
+  }
+  .proclamation-line-top,
+  .proclamation-line-bottom {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .proclamation-venue-highlight {
+    padding: 6px 16px 5px;
+  }
+  .proclamation-venue-highlight .venue-title-text {
+    font-size: 1.1rem;
+  }
+  .baraat-quick-details {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}

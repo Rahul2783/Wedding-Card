@@ -1,0 +1,328 @@
+/* ========================================================
+   ROYAL HINDU WEDDING DESIGN SYSTEM
+   Colors: Deep Maroon (#430008), Burgundy (#250006), Antique Gold (#D4A64A),
+   Bright Gold (#FFD875), Warm Ivory (#FFF3D9)
+   ======================================================== */
+
+:root {
+  --maroon-deep: #430008;
+  --maroon-dark: #250006;
+  --maroon-medium: #5c020d;
+  --maroon-glow: #7a0815;
+  --gold-antique: #D4A64A;
+  --gold-bright: #FFD875;
+  --gold-dark: #9B6E1F;
+  --gold-subtle: rgba(212, 166, 74, 0.25);
+  --ivory-warm: #FFF3D9;
+  --ivory-muted: #E8D7B8;
+  --text-primary: #FFF3D9;
+  --text-secondary: #E8D7B8;
+  --text-gold: #FFD875;
+  
+  --font-devanagari-serif: 'Noto Serif Devanagari', serif;
+  --font-devanagari-display: 'Rozha One', 'Noto Serif Devanagari', serif;
+  --font-english-serif: 'Cinzel', 'Cormorant Garamond', serif;
+  --font-english-script: 'Great Vibes', cursive;
+  
+  --gold-gradient: linear-gradient(135deg, #FFD875 0%, #D4A64A 50%, #9B6E1F 100%);
+  --gold-gradient-horizontal: linear-gradient(90deg, #9B6E1F 0%, #FFD875 50%, #9B6E1F 100%);
+  --royal-bg-gradient: radial-gradient(ellipse at 50% 20%, #4e000b 0%, #250006 75%, #180003 100%);
+  --card-bg-gradient: linear-gradient(180deg, rgba(67, 0, 8, 0.85) 0%, rgba(37, 0, 6, 0.95) 100%);
+  
+  --shadow-gold: 0 0 25px rgba(255, 216, 117, 0.25);
+  --shadow-gold-subtle: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(212, 166, 74, 0.15);
+  --shadow-royal-box: 0 12px 35px rgba(18, 0, 3, 0.7);
+  
+  --border-gold: 1px solid rgba(212, 166, 74, 0.4);
+  --border-gold-ornate: 2px solid #D4A64A;
+  
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-arch: 140px 140px 12px 12px;
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--maroon-dark);
+  color: var(--text-primary);
+  font-family: var(--font-devanagari-serif);
+}
+
+body {
+  overflow-x: hidden;
+  background: var(--maroon-dark);
+  min-height: 100vh;
+  position: relative;
+  line-height: 1.6;
+}
+
+/* Background Texture Pattern */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(255, 216, 117, 0.03) 1px, transparent 1px),
+    linear-gradient(rgba(212, 166, 74, 0.02) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Typography Defaults */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-devanagari-display);
+  font-weight: 700;
+  color: var(--gold-bright);
+  letter-spacing: 0.5px;
+}
+
+p, span, button, input, textarea, select {
+  font-family: var(--font-devanagari-serif);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+  font-size: inherit;
+}
+
+/* Section Shells */
+.section-shell {
+  position: relative;
+  z-index: 1;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+@media (max-width: 768px) {
+  .section-shell {
+    padding: 60px 16px;
+  }
+}
+
+/* Section Header Typography */
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+  position: relative;
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-english-serif);
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  margin-bottom: 12px;
+}
+
+.section-eyebrow span {
+  color: var(--gold-antique);
+}
+
+.section-title {
+  font-size: 2.75rem;
+  line-height: 1.25;
+  margin-bottom: 14px;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 25px rgba(255, 216, 117, 0.3);
+}
+
+.section-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 680px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+/* Traditional Gold Ornamental Divider */
+.ornamental-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 20px auto;
+  max-width: 450px;
+}
+
+.ornamental-divider .divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-antique), transparent);
+}
+
+.ornamental-divider .divider-symbol {
+  color: var(--gold-bright);
+  font-size: 1.3rem;
+  line-height: 1;
+  filter: drop-shadow(0 0 4px rgba(255, 216, 117, 0.6));
+}
+
+/* Royal Buttons */
+.btn-royal-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--gold-gradient);
+  color: var(--maroon-dark);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 14px 28px 11px;
+  border-radius: 30px;
+  box-shadow: 0 4px 18px rgba(212, 166, 74, 0.35);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  letter-spacing: 0.5px;
+  border: 1px solid #FFE494;
+  line-height: 1.2;
+}
+
+.btn-royal-primary > span,
+.btn-royal-outline > span {
+  display: inline-block;
+  position: relative;
+  top: 1.5px;
+}
+
+.btn-royal-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 216, 117, 0.5);
+  filter: brightness(1.08);
+}
+
+.btn-royal-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(37, 0, 6, 0.65);
+  color: var(--gold-bright);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 13px 26px 10px;
+  border-radius: 30px;
+  border: 1px solid var(--gold-antique);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  line-height: 1.2;
+}
+
+.btn-royal-outline:hover {
+  background: rgba(212, 166, 74, 0.15);
+  border-color: var(--gold-bright);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(212, 166, 74, 0.2);
+}
+
+/* Royal Ornate Card Border Framework */
+.royal-card {
+  background: var(--card-bg-gradient);
+  border: 1px solid rgba(212, 166, 74, 0.45);
+  box-shadow: var(--shadow-royal-box);
+  border-radius: var(--radius-md);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+}
+
+.royal-card::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgba(212, 166, 74, 0.2);
+  border-radius: calc(var(--radius-md) - 2px);
+  pointer-events: none;
+}
+
+/* Ornate Corner Accents */
+.corner-accent {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+  border-color: var(--gold-bright);
+}
+
+.corner-top-left {
+  top: 8px;
+  left: 8px;
+  border-top: 2px solid var(--gold-antique);
+  border-left: 2px solid var(--gold-antique);
+}
+
+.corner-top-right {
+  top: 8px;
+  right: 8px;
+  border-top: 2px solid var(--gold-antique);
+  border-right: 2px solid var(--gold-antique);
+}
+
+.corner-bottom-left {
+  bottom: 8px;
+  left: 8px;
+  border-bottom: 2px solid var(--gold-antique);
+  border-left: 2px solid var(--gold-antique);
+}
+
+.corner-bottom-right {
+  bottom: 8px;
+  right: 8px;
+  border-bottom: 2px solid var(--gold-antique);
+  border-right: 2px solid var(--gold-antique);
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--maroon-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold-dark);
+  border-radius: 5px;
+  border: 2px solid var(--maroon-dark);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-antique);
+}
+
+/* Accessibility Focus States */
+:focus-visible {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 3px;
+}

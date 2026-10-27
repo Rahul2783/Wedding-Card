@@ -1,0 +1,134 @@
+/* ========================================================
+   FOOTER STYLES
+   ======================================================== */
+
+.royal-footer {
+  position: relative;
+  background: #140003;
+  border-top: 1.5px solid var(--gold-antique);
+  padding: 60px 20px 40px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.footer-container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-crest {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold-bright);
+  background: radial-gradient(circle, #7a0815 0%, #200004 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 16px rgba(255, 216, 117, 0.4);
+  overflow: hidden;
+  padding: 3px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.footer-crest:hover {
+  transform: scale(1.1) rotate(4deg);
+  box-shadow: 0 0 24px rgba(255, 216, 117, 0.65);
+}
+
+.footer-ganesha-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.45));
+}
+
+.footer-couple-name {
+  font-size: 1.8rem;
+  color: var(--gold-bright);
+  margin-bottom: 6px;
+}
+
+.footer-couple-name i {
+  font-family: var(--font-english-script);
+  color: #ff334b;
+  margin: 0 8px;
+  font-size: 1.6rem;
+}
+
+.footer-sub-text {
+  font-size: 0.95rem;
+  color: var(--ivory-warm);
+  margin-bottom: 8px;
+}
+
+.footer-note-text {
+  font-size: 0.9rem;
+  color: var(--gold-antique);
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+.footer-family-sign {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(212, 166, 74, 0.15);
+  border: 1px solid var(--gold-antique);
+  border-radius: 20px;
+  padding: 8px 24px 6px;
+  color: var(--gold-bright);
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.15;
+  margin-bottom: 24px;
+}
+
+.footer-family-sign span {
+  display: inline-block;
+  position: relative;
+  top: 1.5px;
+}
+
+.back-to-top-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(45, 0, 8, 0.7);
+  border: 1px solid var(--gold-antique);
+  color: var(--gold-bright);
+  padding: 10px 20px 8px;
+  border-radius: 20px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.15;
+  transition: all 0.25s ease;
+  margin-bottom: 24px;
+}
+
+.back-to-top-btn span {
+  display: inline-block;
+  position: relative;
+  top: 1.5px;
+}
+
+.back-to-top-btn:hover {
+  background: var(--gold-gradient);
+  color: var(--maroon-dark);
+  transform: translateY(-2px);
+}
+
+.footer-copyright {
+  font-size: 0.8rem;
+  color: var(--ivory-muted);
+  border-top: 1px solid rgba(212, 166, 74, 0.15);
+  padding-top: 16px;
+  width: 100%;
+}

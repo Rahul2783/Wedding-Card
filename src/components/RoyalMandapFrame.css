@@ -1,0 +1,130 @@
+/* ========================================================
+   AUTHENTIC ROYAL MANDAP FRAME (Matches Reference Mockup)
+   ======================================================== */
+
+.royal-mandap-main-frame {
+  position: relative;
+  width: 100%;
+  max-width: 1140px;
+  margin: 12px auto 40px;
+  background: radial-gradient(ellipse at 50% 25%, #420008 0%, #260005 75%, #160003 100%);
+  border: 2px solid #D4A64A;
+  border-radius: 12px;
+  box-shadow: 
+    0 0 35px rgba(255, 216, 117, 0.25),
+    0 25px 60px rgba(0, 0, 0, 0.9),
+    inset 0 0 40px rgba(212, 166, 74, 0.12);
+  overflow: hidden;
+}
+
+/* Inner Dashed Gold Border */
+.royal-mandap-main-frame::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px dashed rgba(212, 166, 74, 0.45);
+  border-radius: 8px;
+  pointer-events: none;
+  z-index: 8;
+}
+
+/* Top Hanging Marigold Toran with Brass Bells */
+.mandap-frame-top-toran {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 68px;
+  z-index: 12;
+  pointer-events: none;
+}
+
+.top-toran-img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.7));
+}
+
+/* Left Temple Carved Pillar */
+.mandap-pillar-left {
+  position: absolute;
+  top: 10px;
+  left: 8px;
+  width: 95px;
+  height: 420px;
+  z-index: 11;
+  pointer-events: none;
+}
+
+/* Right Temple Carved Pillar */
+.mandap-pillar-right {
+  position: absolute;
+  top: 10px;
+  right: 8px;
+  width: 95px;
+  height: 420px;
+  z-index: 11;
+  pointer-events: none;
+}
+
+.pillar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.8));
+}
+
+/* Content Container Inside Mandap Frame */
+.mandap-frame-inner-body {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  padding-top: 48px;
+  padding-bottom: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1120px) {
+  .mandap-pillar-left,
+  .mandap-pillar-right {
+    width: 75px;
+    height: 340px;
+  }
+}
+
+@media (max-width: 860px) {
+  .royal-mandap-main-frame {
+    margin: 8px 10px 30px;
+    width: calc(100% - 20px);
+  }
+
+  .mandap-pillar-left,
+  .mandap-pillar-right {
+    display: none; /* Hide pillars on small tablets and mobile to avoid obstructing cards, matching reference-mobile.jpg */
+  }
+
+  .mandap-frame-top-toran {
+    height: 48px;
+  }
+
+  .mandap-frame-inner-body {
+    padding-top: 36px;
+  }
+}
+
+@media (max-width: 600px) {
+  .royal-mandap-main-frame {
+    margin: 4px 6px 20px;
+    width: calc(100% - 12px);
+    border-radius: 8px;
+  }
+
+  .mandap-frame-top-toran {
+    height: 40px;
+  }
+
+  .mandap-frame-inner-body {
+    padding-top: 30px;
+  }
+}

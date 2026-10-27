@@ -1,0 +1,135 @@
+/* ========================================================
+   AUTHENTIC ROYAL INVITATION FRAME STYLES
+   ======================================================== */
+
+.royal-invitation-frame-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Fixed Outer Screen Border & Corner Accents */
+.royal-fixed-screen-frame {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* 4 Border Bars */
+.screen-border-bar {
+  position: fixed;
+  background: linear-gradient(90deg, #9B6E1F 0%, #FFD875 35%, #FFF3D9 50%, #FFD875 65%, #9B6E1F 100%);
+  box-shadow: 0 0 10px rgba(255, 216, 117, 0.35);
+  pointer-events: none;
+}
+
+.screen-border-bar.border-top {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+}
+
+.screen-border-bar.border-bottom {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+}
+
+.screen-border-bar.border-left {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 6px;
+  background: linear-gradient(180deg, #9B6E1F 0%, #FFD875 35%, #FFF3D9 50%, #FFD875 65%, #9B6E1F 100%);
+}
+
+.screen-border-bar.border-right {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 6px;
+  background: linear-gradient(180deg, #9B6E1F 0%, #FFD875 35%, #FFF3D9 50%, #FFD875 65%, #9B6E1F 100%);
+}
+
+/* 4 Ornate Corners */
+.screen-corner {
+  position: fixed;
+  width: 46px;
+  height: 46px;
+  pointer-events: none;
+  z-index: 1000;
+  filter: drop-shadow(0 0 8px rgba(255, 216, 117, 0.65));
+}
+
+.corner-tl {
+  top: 4px;
+  left: 4px;
+}
+
+.corner-tr {
+  top: 4px;
+  right: 4px;
+}
+
+.corner-bl {
+  bottom: 4px;
+  left: 4px;
+}
+
+.corner-br {
+  bottom: 4px;
+  right: 4px;
+}
+
+.corner-flourish-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Main Inner Content */
+.royal-invitation-inner-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 600px) {
+  .screen-border-bar.border-top,
+  .screen-border-bar.border-bottom {
+    height: 4px;
+  }
+
+  .screen-border-bar.border-left,
+  .screen-border-bar.border-right {
+    width: 4px;
+  }
+
+  .screen-corner {
+    width: 32px;
+    height: 32px;
+  }
+
+  .corner-tl {
+    top: 2px;
+    left: 2px;
+  }
+
+  .corner-tr {
+    top: 2px;
+    right: 2px;
+  }
+
+  .corner-bl {
+    bottom: 2px;
+    left: 2px;
+  }
+
+  .corner-br {
+    bottom: 2px;
+    right: 2px;
+  }
+}

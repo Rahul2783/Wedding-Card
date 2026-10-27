@@ -1,0 +1,265 @@
+/* ========================================================
+   AUTHENTIC ROYAL DUAL BOTTOM PANELS (Matches Reference Mockup)
+   ======================================================== */
+
+.invitation-bottom-panels-section {
+  position: relative;
+  width: 100%;
+  padding: 16px 16px 36px;
+  display: flex;
+  justify-content: center;
+}
+
+.bottom-panels-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 20px;
+  width: 100%;
+  max-width: 1040px;
+}
+
+/* Base Panel Card */
+.bottom-panel-card {
+  position: relative;
+  background: linear-gradient(180deg, rgba(55, 0, 8, 0.94) 0%, rgba(28, 0, 4, 0.98) 100%);
+  border: 1.5px solid #D4A64A;
+  border-radius: 12px;
+  padding: 20px 18px 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.75), inset 0 0 18px rgba(212, 166, 74, 0.1);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.bottom-panel-card:hover {
+  border-color: #FFD875;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.85), 0 0 20px rgba(255, 216, 117, 0.25);
+}
+
+.bottom-panel-card::before {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border: 1px dashed rgba(212, 166, 74, 0.35);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+/* Header */
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.panel-ornament {
+  color: #D4A64A;
+  font-size: 0.85rem;
+}
+
+.panel-title {
+  font-family: var(--font-devanagari-display), 'Rozha One', serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #FFD875;
+  text-shadow: 0 0 10px rgba(255, 216, 117, 0.4);
+  letter-spacing: 0.5px;
+}
+
+/* Left Panel: Bal Aagrah Content */
+.bal-panel-content {
+  display: grid;
+  grid-template-columns: 75px 1fr 75px;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.bal-art-left,
+.bal-art-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dholak-img,
+.shehnai-img {
+  width: 100%;
+  max-width: 70px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.7));
+  mix-blend-mode: lighten;
+}
+
+.bal-rhyme-center {
+  text-align: center;
+  padding: 0 4px;
+}
+
+.rhyme-line-1 {
+  font-family: var(--font-devanagari-serif);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #FFF3D9;
+  line-height: 1.4;
+  margin-bottom: 2px;
+}
+
+.rhyme-line-2 {
+  font-family: var(--font-devanagari-serif);
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: #FFD875;
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.rhyme-kids-names {
+  font-family: var(--font-devanagari-serif);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #D4A64A;
+  line-height: 1.3;
+}
+
+/* Right Panel: 3 Action Hubs */
+.actions-three-hubs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.action-hub-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 4px;
+  transition: transform 0.25s ease;
+}
+
+.action-hub-btn:hover {
+  transform: translateY(-3px);
+}
+
+.hub-circle-icon {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 1.5px solid #FFD875;
+  background: radial-gradient(circle, rgba(122, 8, 21, 0.95) 0%, rgba(42, 0, 6, 0.98) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7), 0 0 12px rgba(255, 216, 117, 0.3);
+  transition: all 0.25s ease;
+}
+
+.action-hub-btn:hover .hub-circle-icon {
+  border-color: #FFE494;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.8), 0 0 18px rgba(255, 216, 117, 0.5);
+}
+
+.hub-icon-img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  mix-blend-mode: lighten;
+}
+
+/* Pushp Varsha Status Badge */
+.hub-status-badge {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  font-size: 0.62rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 10px;
+  line-height: 1;
+}
+
+.hub-status-badge.status-on {
+  background: #2e7d32;
+  color: #fff;
+  border: 1px solid #81c784;
+}
+
+.hub-status-badge.status-off {
+  background: #c62828;
+  color: #fff;
+  border: 1px solid #ef5350;
+}
+
+.hub-label {
+  font-family: var(--font-devanagari-serif);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #FFF3D9;
+  line-height: 1.25;
+  transition: color 0.2s ease;
+}
+
+.hub-label-multiline {
+  font-family: var(--font-english-serif);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #E8D7B8;
+  letter-spacing: 0.3px;
+  line-height: 1.2;
+}
+
+.action-hub-btn:hover .hub-label {
+  color: #FFD875;
+}
+
+/* Mobile Responsiveness matching reference-mobile.jpg */
+@media (max-width: 768px) {
+  .bottom-panels-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .bal-panel-content {
+    grid-template-columns: 60px 1fr 60px;
+  }
+
+  .dholak-img,
+  .shehnai-img {
+    max-width: 55px;
+  }
+
+  .panel-title {
+    font-size: 1.45rem;
+  }
+
+  .hub-circle-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .hub-icon-img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .hub-label {
+    font-size: 0.8rem;
+  }
+
+  .hub-label-multiline {
+    font-size: 0.68rem;
+  }
+}

@@ -1,0 +1,502 @@
+/* ========================================================
+   ROYAL HERO SECTION STYLES
+   ======================================================== */
+
+.hero-royal-section {
+  position: relative;
+  min-height: 100vh;
+  padding: 100px 16px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-mandap-bg {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center top;
+  filter: brightness(0.55) contrast(1.1);
+  transform: scale(1.02);
+}
+
+.hero-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 30%,
+    rgba(37, 0, 6, 0.6) 0%,
+    rgba(37, 0, 6, 0.92) 75%,
+    rgba(20, 0, 3, 0.98) 100%
+  );
+}
+
+/* Hanging Bells */
+.hero-toran-layer {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.hero-bell {
+  position: absolute;
+  top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-bell.bell-left {
+  left: 5%;
+}
+
+.hero-bell.bell-right {
+  right: 5%;
+}
+
+.bell-cord {
+  width: 2px;
+  height: 90px;
+  background: linear-gradient(180deg, #FFD875 0%, #D4A64A 100%);
+  box-shadow: 0 0 10px rgba(255, 216, 117, 0.5);
+}
+
+.bell-symbol {
+  font-size: 2rem;
+  line-height: 1;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.8));
+}
+
+/* Main Container */
+.hero-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Ganesha Crest */
+.hero-ganesha-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.ganesha-crest {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border: 2px solid var(--gold-bright);
+  background: radial-gradient(circle, rgba(122, 8, 21, 0.95) 0%, rgba(37, 0, 6, 0.98) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  box-shadow: 0 0 26px rgba(255, 216, 117, 0.55), inset 0 0 10px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  padding: 6px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ganesha-crest:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 32px rgba(255, 216, 117, 0.75);
+}
+
+.ganesha-crest-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+}
+
+.hero-shloka-text {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--gold-bright);
+  letter-spacing: 2px;
+  text-shadow: 0 0 12px rgba(255, 216, 117, 0.4);
+}
+
+/* Main Title */
+.hero-main-title {
+  font-size: 3.8rem;
+  line-height: 1.15;
+  background: linear-gradient(135deg, #FFF3D9 0%, #FFD875 35%, #D4A64A 70%, #9B6E1F 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 25px rgba(255, 216, 117, 0.45));
+  margin-bottom: 6px;
+}
+
+.hero-tagline {
+  font-size: 1.2rem;
+  color: var(--ivory-warm);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-bottom: 28px;
+}
+
+/* Grand Mandap Stage (3-Column Layout: Groom, Couple, Bride) */
+.hero-mandap-stage {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 1fr;
+  gap: 20px;
+  align-items: center;
+  width: 100%;
+  max-width: 1080px;
+  margin-bottom: 16px;
+}
+
+/* Arched Pillars for Groom & Bride */
+.mandap-arch-pillar {
+  background: linear-gradient(180deg, rgba(67, 0, 8, 0.88) 0%, rgba(30, 0, 5, 0.96) 100%);
+  border: 1.5px solid var(--gold-antique);
+  border-radius: var(--radius-arch);
+  padding: 32px 18px 24px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7), inset 0 0 16px rgba(212, 166, 74, 0.15);
+  position: relative;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.mandap-arch-pillar:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold-bright);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 216, 117, 0.3);
+}
+
+.mandap-arch-pillar::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px dashed rgba(212, 166, 74, 0.35);
+  border-radius: calc(140px - 6px) calc(140px - 6px) 8px 8px;
+  pointer-events: none;
+}
+
+.arch-role-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gold-gradient);
+  color: var(--maroon-dark);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 5px 14px 4px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  line-height: 1.2;
+}
+
+.arch-role-tag .tag-text {
+  display: inline-block;
+  position: relative;
+  top: 1.5px;
+}
+
+.arch-person-name {
+  font-size: 2.1rem;
+  line-height: 1.15;
+  color: var(--gold-bright);
+  margin-bottom: 2px;
+}
+
+.arch-nickname {
+  font-size: 1.1rem;
+  color: var(--ivory-warm);
+  font-weight: 600;
+}
+
+.arch-ornament-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px auto;
+  max-width: 140px;
+}
+
+.arch-ornament-line .line {
+  flex: 1;
+  height: 1px;
+  background: var(--gold-antique);
+}
+
+.arch-ornament-line .dot {
+  color: var(--gold-bright);
+  font-size: 0.85rem;
+}
+
+.arch-formal-title {
+  font-size: 1rem;
+  color: var(--gold-bright);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.arch-relation {
+  font-size: 0.95rem;
+  color: var(--ivory-warm);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.arch-relation-sub {
+  font-size: 0.92rem;
+  color: var(--ivory-muted);
+  line-height: 1.4;
+}
+
+.arch-grand-relation {
+  font-size: 0.85rem;
+  color: var(--gold-antique);
+  margin-top: 6px;
+  border-top: 1px solid rgba(212, 166, 74, 0.2);
+  padding-top: 6px;
+}
+
+/* Center Couple Portrait */
+.mandap-center-portrait {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+}
+
+.couple-halo-frame {
+  position: relative;
+  width: 270px;
+  height: 330px;
+  border-radius: 140px 140px 20px 20px;
+  padding: 6px;
+  background: var(--gold-gradient);
+  box-shadow: 0 0 35px rgba(255, 216, 117, 0.4), 0 12px 35px rgba(0, 0, 0, 0.9);
+}
+
+.couple-portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 134px 134px 14px 14px;
+  border: 2px solid var(--maroon-dark);
+}
+
+.varmala-badge {
+  position: absolute;
+  bottom: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #7a0815 0%, #430008 100%);
+  border: 1.5px solid var(--gold-bright);
+  border-radius: 20px;
+  padding: 5px 16px 4px;
+  color: var(--gold-bright);
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.varmala-badge .varmala-text {
+  display: inline-block;
+  position: relative;
+  top: 1.5px;
+}
+
+.varmala-heart {
+  color: #ff334b;
+  fill: #ff334b;
+  position: relative;
+  top: -0.5px;
+}
+
+/* Interactive Action Strip */
+.hero-interactive-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  width: 100%;
+  max-width: 640px;
+  margin-top: 24px;
+}
+
+.interactive-card-btn {
+  background: linear-gradient(180deg, rgba(67, 0, 8, 0.9) 0%, rgba(30, 0, 5, 0.96) 100%);
+  border: 1.5px solid var(--gold-antique);
+  border-radius: 12px;
+  padding: 14px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+  transition: all 0.25s ease;
+}
+
+.interactive-card-btn:hover {
+  transform: translateY(-3px);
+  border-color: var(--gold-bright);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.7), 0 0 16px rgba(255, 216, 117, 0.3);
+}
+
+.interactive-card-btn .icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(212, 166, 74, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.card-emoji {
+  font-size: 1.4rem;
+}
+
+.gold-icon {
+  color: var(--gold-bright);
+}
+
+.btn-label {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--gold-bright);
+  line-height: 1.2;
+  position: relative;
+  top: 1.5px;
+}
+
+.label-with-state {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
+}
+
+.hero-state-pill {
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 3px 6px 1px;
+  border-radius: 10px;
+  letter-spacing: 0.5px;
+  line-height: 1.15;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 0.5px;
+}
+
+.hero-state-pill.state-on {
+  background: #2e7d32;
+  color: #e8f5e9;
+  border: 1px solid #81c784;
+  box-shadow: 0 0 6px rgba(129, 199, 132, 0.4);
+}
+
+.hero-state-pill.state-off {
+  background: rgba(120, 0, 15, 0.85);
+  color: #ffcdd2;
+  border: 1px solid rgba(255, 82, 107, 0.4);
+}
+
+.flower-card-btn.active-shower-card {
+  border-color: #ffd875;
+  background: linear-gradient(180deg, rgba(120, 10, 25, 0.95) 0%, rgba(50, 0, 8, 0.98) 100%);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.7), 0 0 16px rgba(255, 82, 107, 0.35);
+}
+
+.flower-card-btn.inactive-shower-card {
+  opacity: 0.85;
+  filter: grayscale(0.2);
+}
+
+.btn-sub {
+  font-size: 0.75rem;
+  color: var(--ivory-muted);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .hero-mandap-stage {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    max-width: 440px;
+  }
+  .mandap-center-portrait {
+    order: -1;
+  }
+  .couple-halo-frame {
+    width: 230px;
+    height: 280px;
+  }
+  .hero-main-title {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-royal-section {
+    padding: 95px 12px 40px;
+  }
+  .ganesha-crest {
+    width: 82px;
+    height: 82px;
+    padding: 4px;
+  }
+  .hero-main-title {
+    font-size: 2.4rem;
+  }
+  .hero-tagline {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  .couple-halo-frame {
+    width: 200px;
+    height: 250px;
+  }
+  .arch-person-name {
+    font-size: 1.7rem;
+  }
+  .hero-interactive-strip {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .interactive-card-btn {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 10px 18px;
+    gap: 14px;
+  }
+  .interactive-card-btn .icon-wrap {
+    margin-bottom: 0;
+  }
+  .interactive-card-btn .btn-sub {
+    margin-left: auto;
+  }
+}

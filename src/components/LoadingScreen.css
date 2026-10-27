@@ -1,0 +1,143 @@
+/* ========================================================
+   AUTHENTIC ROYAL LOADING SCREEN (Matches Reference Image 1)
+   ======================================================== */
+
+.royal-loader-screen {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999;
+  background-color: #1a0004;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 12vh;
+  overflow: hidden;
+}
+
+.loader-art-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/reference-loading.jpg');
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  filter: brightness(0.98) contrast(1.05);
+  transform: scale(1.01);
+}
+
+.loader-art-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    transparent 40%,
+    rgba(20, 0, 4, 0.4) 85%,
+    rgba(15, 0, 3, 0.8) 100%
+  );
+  pointer-events: none;
+}
+
+/* Interactive Progress Overlay (Positioned precisely over progress zone) */
+.loader-progress-overlay {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 420px;
+  padding: 0 20px;
+}
+
+.loader-counter-text {
+  font-family: var(--font-english-serif), 'Cinzel', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #FFE494;
+  text-shadow: 0 0 16px rgba(255, 216, 117, 0.9), 0 2px 8px rgba(0, 0, 0, 0.9);
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+/* Ornate Gold Filigree Bar Capsule */
+.loader-filigree-bar-frame {
+  width: 100%;
+  max-width: 360px;
+  height: 18px;
+  border-radius: 20px;
+  padding: 2.5px;
+  background: linear-gradient(180deg, #420008 0%, #1a0003 100%);
+  border: 1.5px solid #FFD875;
+  box-shadow: 
+    0 0 20px rgba(255, 216, 117, 0.35),
+    inset 0 0 10px rgba(0, 0, 0, 0.9),
+    0 8px 25px rgba(0, 0, 0, 0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Molten Gold-Orange-Red Lava Fill */
+.loader-lava-fill {
+  height: 100%;
+  border-radius: 14px;
+  background: linear-gradient(
+    90deg,
+    #7a0815 0%,
+    #c01525 35%,
+    #ff4500 70%,
+    #ffd875 100%
+  );
+  box-shadow: 0 0 14px rgba(255, 120, 20, 0.8), inset 0 1px 2px rgba(255, 255, 255, 0.6);
+  position: relative;
+  transition: width 0.1s linear;
+}
+
+.loader-lava-glow-tip {
+  position: absolute;
+  right: -2px;
+  top: -3px;
+  bottom: -3px;
+  width: 12px;
+  border-radius: 50%;
+  background: #ffffff;
+  filter: blur(2px) drop-shadow(0 0 8px #ffd700);
+}
+
+.loader-tagline-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 12px;
+  font-family: var(--font-devanagari-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #FFF3D9;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.9), 0 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.loader-tagline-text span:first-child,
+.loader-tagline-text span:last-child {
+  color: #FFD875;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 600px) {
+  .royal-loader-screen {
+    padding-bottom: 16vh;
+  }
+  .loader-counter-text {
+    font-size: 1.15rem;
+  }
+  .loader-filigree-bar-frame {
+    max-width: 290px;
+    height: 16px;
+  }
+  .loader-tagline-text {
+    font-size: 0.92rem;
+  }
+}

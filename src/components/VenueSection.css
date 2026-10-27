@@ -1,0 +1,217 @@
+/* ========================================================
+   VENUE SECTION STYLES
+   ======================================================== */
+
+.venue-royal-section {
+  position: relative;
+  background: radial-gradient(ellipse at 50% 50%, #300006 0%, #1a0003 100%);
+  padding: 80px 20px;
+}
+
+.venue-card-wrapper {
+  padding: 36px 32px 30px;
+  position: relative;
+}
+
+.venue-card-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+/* Venue Image */
+.venue-image-box {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--gold-antique);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  min-height: 340px;
+}
+
+.venue-showcase-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.venue-image-box:hover .venue-showcase-img {
+  transform: scale(1.05);
+}
+
+.venue-name-overlay-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: rgba(37, 0, 6, 0.9);
+  border: 1px solid var(--gold-bright);
+  border-radius: 20px;
+  padding: 6px 16px 4px;
+  color: var(--gold-bright);
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+  line-height: 1.2;
+}
+
+.venue-name-overlay-badge .badge-text {
+  display: inline-block;
+  position: relative;
+  top: 1.5px;
+}
+
+/* Venue Details */
+.venue-info-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.venue-kicker {
+  font-size: 0.85rem;
+  color: var(--gold-antique);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.venue-main-name {
+  font-size: 2.4rem;
+  color: var(--gold-bright);
+  line-height: 1.2;
+  margin: 4px 0 16px;
+}
+
+.venue-address-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.venue-pin-icon {
+  color: var(--gold-bright);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.address-full {
+  font-size: 1.05rem;
+  color: var(--ivory-warm);
+  line-height: 1.5;
+}
+
+.address-landmark {
+  font-size: 0.92rem;
+  color: var(--gold-antique);
+  display: block;
+  margin-top: 2px;
+}
+
+.venue-datetime-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(122, 8, 21, 0.45);
+  border: 1px dashed var(--gold-antique);
+  border-radius: 8px;
+  padding: 10px 16px 8px;
+  color: var(--gold-bright);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 26px;
+  width: fit-content;
+  line-height: 1.2;
+}
+
+.venue-datetime-badge .badge-text {
+  display: inline-block;
+  position: relative;
+  top: 1.5px;
+}
+
+/* Action Buttons */
+.venue-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.venue-action-btn {
+  font-size: 0.95rem;
+  padding: 12px 24px 10px;
+}
+
+/* Phone Contacts */
+.venue-contact-strip {
+  border-top: 1px solid rgba(212, 166, 74, 0.25);
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-label {
+  font-size: 0.85rem;
+  color: var(--ivory-muted);
+  font-weight: 600;
+}
+
+.contact-numbers-list {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.phone-link {
+  font-family: var(--font-english-serif);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--gold-bright);
+  background: rgba(37, 0, 6, 0.7);
+  border: 1px solid rgba(212, 166, 74, 0.4);
+  padding: 4px 12px 2px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  line-height: 1.2;
+}
+
+.phone-link:hover {
+  background: rgba(212, 166, 74, 0.2);
+  border-color: var(--gold-bright);
+}
+
+@media (max-width: 900px) {
+  .venue-card-grid {
+    grid-template-columns: 1fr;
+  }
+  .venue-image-box {
+    min-height: 240px;
+  }
+}
+
+@media (max-width: 600px) {
+  .venue-royal-section {
+    padding: 50px 14px;
+  }
+  .venue-card-wrapper {
+    padding: 24px 16px 20px;
+  }
+  .venue-main-name {
+    font-size: 1.9rem;
+  }
+  .venue-actions-row {
+    flex-direction: column;
+    width: 100%;
+  }
+  .venue-action-btn {
+    width: 100%;
+  }
+}

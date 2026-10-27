@@ -1,0 +1,145 @@
+/* ========================================================
+   GUESTBOOK SECTION STYLES
+   ======================================================== */
+
+.guestbook-royal-section {
+  position: relative;
+  background: radial-gradient(ellipse at 50% 50%, #3a0007 0%, #1e0004 100%);
+  border-top: 1px solid rgba(212, 166, 74, 0.2);
+}
+
+.guestbook-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+/* Write Wish Card */
+.write-wish-card {
+  padding: 28px 24px;
+}
+
+.card-form-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.4rem;
+  color: var(--gold-bright);
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(212, 166, 74, 0.25);
+  padding-bottom: 12px;
+}
+
+.guestbook-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.write-submit-btn {
+  width: 100%;
+  padding: 14px 14px 11px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  line-height: 1.2;
+}
+
+.write-submit-btn span {
+  display: inline-block;
+  position: relative;
+  top: 1.5px;
+}
+
+.guestbook-demo-disclaimer {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: var(--ivory-muted);
+  line-height: 1.35;
+  margin-top: 4px;
+}
+
+/* Wishes Stream */
+.wishes-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-height: 520px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.wish-card-item {
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wish-top-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.author-name {
+  font-size: 1.15rem;
+  color: var(--gold-bright);
+  line-height: 1.2;
+}
+
+.author-city {
+  font-size: 0.8rem;
+  color: var(--gold-antique);
+}
+
+.wish-time-badge {
+  font-size: 0.75rem;
+  color: var(--ivory-muted);
+  background: rgba(212, 166, 74, 0.15);
+  border-radius: 12px;
+  padding: 3px 10px 2px;
+  line-height: 1.2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 0.5px;
+}
+
+.wish-message-body {
+  font-size: 0.95rem;
+  color: var(--ivory-warm);
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.wish-bottom-ornament {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-top: 1px dashed rgba(212, 166, 74, 0.2);
+  padding-top: 8px;
+}
+
+.tiny-heart {
+  color: #ff334b;
+  fill: #ff334b;
+}
+
+.blessing-tag {
+  font-size: 0.75rem;
+  color: var(--gold-antique);
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .guestbook-grid {
+    grid-template-columns: 1fr;
+  }
+}

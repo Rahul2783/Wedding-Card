@@ -25,9 +25,22 @@ import './styles/animations.css';
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [lang, setLang] = useState('hi');
-  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+  // संगीत by default ON in 75% volume as requested
+  const [isMusicPlaying, setIsMusicPlaying] = useState(true);
   // पुष्प वर्षा by default ON as requested
   const [isFlowerShowerActive, setIsFlowerShowerActive] = useState(true);
+
+  // Lock body scroll while loading screen is active
+  useEffect(() => {
+    if (isLoading) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isLoading]);
 
   // Manage Continuous Flower Shower Lifecycle (ON by default)
   useEffect(() => {
@@ -68,12 +81,11 @@ export default function App() {
 
   return (
     <div className="wedding-app">
-      {/* 1. Cinematic Loading Screen */}
+      {/* 1. Cinematic Loading Screen (slides upward on 100%) */}
       {isLoading && <LoadingScreen onComplete={handleLoadingComplete} />}
 
       {/* 2. Main Royal Invitation Layout with Royal Frame */}
-      {!isLoading && (
-        <RoyalCardFrame>
+      <RoyalCardFrame>
           {/* Sticky Royal Navigation with Flower Shower & Music controls */}
           <Navbar
             lang={lang}
@@ -160,7 +172,6 @@ export default function App() {
             setIsPlaying={setIsMusicPlaying}
           />
         </RoyalCardFrame>
-      )}
     </div>
   );
 }

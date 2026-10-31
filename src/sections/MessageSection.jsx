@@ -67,15 +67,11 @@ export default function MessageSection({ lang, balAagrah, poetry }) {
             <div className="bal-content-row">
               {/* Dholak Illustration */}
               <div className="instrument-col instrument-dholak">
-                <svg viewBox="0 0 100 80" className="dholak-svg">
-                  <ellipse cx="50" cy="40" rx="35" ry="24" fill="#a0522d" stroke="#FFD875" strokeWidth="2" />
-                  <ellipse cx="20" cy="40" rx="10" ry="22" fill="#7a0815" stroke="#FFD875" strokeWidth="2" />
-                  <ellipse cx="80" cy="40" rx="10" ry="22" fill="#7a0815" stroke="#FFD875" strokeWidth="2" />
-                  <line x1="20" y1="18" x2="80" y2="62" stroke="#FFD875" strokeWidth="1.5" />
-                  <line x1="20" y1="62" x2="80" y2="18" stroke="#FFD875" strokeWidth="1.5" />
-                  <line x1="20" y1="28" x2="80" y2="52" stroke="#FFD875" strokeWidth="1.5" />
-                  <line x1="20" y1="52" x2="80" y2="28" stroke="#FFD875" strokeWidth="1.5" />
-                </svg>
+                <img
+                  src="/images/Dholak.png"
+                  alt="बाजे ढोल"
+                  className="instrument-img dholak-img"
+                />
                 <span className="instrument-label">बाजे ढोल</span>
               </div>
 
@@ -105,14 +101,11 @@ export default function MessageSection({ lang, balAagrah, poetry }) {
 
               {/* Shehnai Illustration */}
               <div className="instrument-col instrument-shehnai">
-                <svg viewBox="0 0 100 80" className="shehnai-svg">
-                  <path d="M20 55 L75 25" stroke="#D4A64A" strokeWidth="6" strokeLinecap="round" />
-                  <path d="M70 28 L88 16 L92 36 Z" fill="#FFD875" stroke="#9B6E1F" strokeWidth="1.5" />
-                  <circle cx="16" cy="58" r="3" fill="#ff4500" />
-                  <circle cx="38" cy="45" r="2" fill="#fff" />
-                  <circle cx="48" cy="39" r="2" fill="#fff" />
-                  <circle cx="58" cy="34" r="2" fill="#fff" />
-                </svg>
+                <img
+                  src="/images/Shehnai.png"
+                  alt="गूंजे शहनाई"
+                  className="instrument-img shehnai-img"
+                />
                 <span className="instrument-label">गूंजे शहनाई</span>
               </div>
             </div>

@@ -224,6 +224,15 @@ export const weddingConfig = {
   gallery: [
     {
       id: 'g1',
+      src: '/images/couple-illustration.jpg',
+      titleHi: 'शाही राजसी स्वरूप',
+      titleEn: 'Royal Wedding Vivah Portrait',
+      captionHi: 'राजसी परिधान में वर-वधू (सचिन एवं अंजलि) का मनमोहक स्वरूप',
+      captionEn: 'Sachin & Anjali in traditional royal wedding regalia',
+      tag: 'couple',
+    },
+    {
+      id: 'g2',
       src: '/images/couple-taj.jpg',
       titleHi: 'प्रेम का पावन प्रतीक',
       titleEn: 'Sacred Symbol of Love',
@@ -232,7 +241,7 @@ export const weddingConfig = {
       tag: 'couple',
     },
     {
-      id: 'g2',
+      id: 'g3',
       src: '/images/couple-real.jpg',
       titleHi: 'साथ-साथ नया सफ़र',
       titleEn: 'A Journey Begins Together',
@@ -241,7 +250,16 @@ export const weddingConfig = {
       tag: 'couple',
     },
     {
-      id: 'g3',
+      id: 'g4',
+      src: '/images/groom-bride-3.jpg',
+      titleHi: 'स्नेहमयी युगल छवि',
+      titleEn: 'Cherished Couple Moment',
+      captionHi: 'वर-वधू के पावन परिणय का सुंदर यादगार पल',
+      captionEn: 'Beautiful candid moment of the bride and groom',
+      tag: 'couple',
+    },
+    {
+      id: 'g5',
       src: '/images/card-envelope.jpg',
       titleHi: 'मूल निमंत्रण पत्र (कवर)',
       titleEn: 'Original Invitation Cover',
@@ -250,7 +268,7 @@ export const weddingConfig = {
       tag: 'invitation',
     },
     {
-      id: 'g4',
+      id: 'g6',
       src: '/images/card-page1.jpg',
       titleHi: 'मांगलिक कार्यक्रम एवं विवरण',
       titleEn: 'Schedule & Programs (Card Page 1)',
@@ -259,22 +277,13 @@ export const weddingConfig = {
       tag: 'invitation',
     },
     {
-      id: 'g5',
+      id: 'g7',
       src: '/images/card-page2.jpg',
       titleHi: 'परिवार व स्नेही विवरण',
       titleEn: 'Family & Relatives (Card Page 2)',
       captionHi: 'मूल पत्रिका पृष्ठ 2: परिणयोत्सव एवं समस्त साहू परिवार',
       captionEn: 'Page 2: Full family relations & blessings',
       tag: 'invitation',
-    },
-    {
-      id: 'g6',
-      src: '/images/couple-illustration.jpg',
-      titleHi: 'शाही राजसी स्वरूप',
-      titleEn: 'Royal Vivah Artwork',
-      captionHi: 'राजसी परिधान में वर-वधू का पारंपरिक चित्रण',
-      captionEn: 'Traditional royal bride & groom ceremonial illustration',
-      tag: 'artwork',
     },
   ],
 };

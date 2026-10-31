@@ -99,24 +99,24 @@
 }
 
 .ganesha-crest {
-  width: 96px;
-  height: 96px;
-  border-radius: 50%;
-  border: 2px solid var(--gold-bright);
-  background: radial-gradient(circle, rgba(122, 8, 21, 0.95) 0%, rgba(37, 0, 6, 0.98) 100%);
+  width: 140px;
+  height: 140px;
+  border-radius: 0;
+  border: none;
+  background: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 12px;
-  box-shadow: 0 0 26px rgba(255, 216, 117, 0.55), inset 0 0 10px rgba(0, 0, 0, 0.6);
-  overflow: hidden;
-  padding: 6px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 8px;
+  box-shadow: none;
+  overflow: visible;
+  padding: 0;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .ganesha-crest:hover {
   transform: scale(1.08);
-  box-shadow: 0 0 32px rgba(255, 216, 117, 0.75);
+  box-shadow: none;
 }
 
 .ganesha-crest-img {
@@ -124,7 +124,12 @@
   height: 100%;
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+  filter: brightness(0.86) contrast(1.02) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 6px rgba(212, 166, 74, 0.25));
+  transition: filter 0.3s ease;
+}
+
+.ganesha-crest:hover .ganesha-crest-img {
+  filter: brightness(0.95) drop-shadow(0 4px 14px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 12px rgba(255, 216, 117, 0.5));
 }
 
 .hero-shloka-text {
@@ -290,6 +295,12 @@
   padding: 6px;
   background: var(--gold-gradient);
   box-shadow: 0 0 35px rgba(255, 216, 117, 0.4), 0 12px 35px rgba(0, 0, 0, 0.9);
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.35s ease;
+}
+
+.couple-halo-frame:hover {
+  transform: scale(1.04) translateY(-3px);
+  box-shadow: 0 0 45px rgba(255, 216, 117, 0.6), 0 16px 40px rgba(0, 0, 0, 0.95);
 }
 
 .couple-portrait-img {
@@ -299,6 +310,7 @@
   object-position: top center;
   border-radius: 134px 134px 14px 14px;
   border: 2px solid var(--maroon-dark);
+  display: block;
 }
 
 .varmala-badge {
@@ -465,9 +477,9 @@
     padding: 95px 12px 40px;
   }
   .ganesha-crest {
-    width: 82px;
-    height: 82px;
-    padding: 4px;
+    width: 115px;
+    height: 115px;
+    padding: 0;
   }
   .hero-main-title {
     font-size: 2.4rem;

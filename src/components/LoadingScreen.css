@@ -15,6 +15,9 @@
   justify-content: flex-end;
   padding-bottom: 12vh;
   overflow: hidden;
+  will-change: transform;
+  border-bottom: 2px solid #FFD875;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.95), 0 4px 20px rgba(255, 216, 117, 0.3);
 }
 
 .loader-art-bg {
@@ -49,33 +52,60 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 420px;
+  max-width: 460px;
   padding: 0 20px;
 }
 
 .loader-counter-text {
   font-family: var(--font-english-serif), 'Cinzel', serif;
-  font-size: 1.35rem;
+  font-size: 1.45rem;
   font-weight: 700;
   color: #FFE494;
-  text-shadow: 0 0 16px rgba(255, 216, 117, 0.9), 0 2px 8px rgba(0, 0, 0, 0.9);
+  text-shadow: 0 0 16px rgba(255, 216, 117, 0.95), 0 2px 8px rgba(0, 0, 0, 0.95);
   margin-bottom: 8px;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
+}
+
+/* Ornate Royal Gold Filigree Bar with Wings */
+.loader-ornate-bar-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 440px;
+  position: relative;
+}
+
+.loader-filigree-wing {
+  width: 38px;
+  height: 30px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 6px rgba(255, 216, 117, 0.75));
+}
+
+.loader-filigree-wing.left {
+  margin-right: -4px;
+  z-index: 3;
+}
+
+.loader-filigree-wing.right {
+  margin-left: -4px;
+  z-index: 3;
 }
 
 /* Ornate Gold Filigree Bar Capsule */
 .loader-filigree-bar-frame {
-  width: 100%;
+  flex: 1;
   max-width: 360px;
-  height: 18px;
+  height: 20px;
   border-radius: 20px;
   padding: 2.5px;
-  background: linear-gradient(180deg, #420008 0%, #1a0003 100%);
-  border: 1.5px solid #FFD875;
+  background: linear-gradient(180deg, #3d0007 0%, #170003 100%);
+  border: 1.8px solid #FFD875;
   box-shadow: 
-    0 0 20px rgba(255, 216, 117, 0.35),
-    inset 0 0 10px rgba(0, 0, 0, 0.9),
-    0 8px 25px rgba(0, 0, 0, 0.8);
+    0 0 20px rgba(255, 216, 117, 0.4),
+    inset 0 0 10px rgba(0, 0, 0, 0.95),
+    0 8px 25px rgba(0, 0, 0, 0.85);
   position: relative;
   overflow: hidden;
 }
@@ -91,53 +121,76 @@
     #ff4500 70%,
     #ffd875 100%
   );
-  box-shadow: 0 0 14px rgba(255, 120, 20, 0.8), inset 0 1px 2px rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 16px rgba(255, 120, 20, 0.9), inset 0 1px 2px rgba(255, 255, 255, 0.7);
   position: relative;
-  transition: width 0.1s linear;
+  transition: width 0.08s linear;
 }
 
 .loader-lava-glow-tip {
   position: absolute;
   right: -2px;
-  top: -3px;
-  bottom: -3px;
-  width: 12px;
+  top: -4px;
+  bottom: -4px;
+  width: 14px;
   border-radius: 50%;
   background: #ffffff;
-  filter: blur(2px) drop-shadow(0 0 8px #ffd700);
+  filter: blur(2px) drop-shadow(0 0 10px #ffd700);
 }
 
 .loader-tagline-text {
+  margin-top: 10px;
+  font-family: var(--font-devanagari-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #FFF3D9;
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.95), 0 2px 4px rgba(0, 0, 0, 0.95);
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+/* Sacred Lotus Divider underneath Tagline */
+.loader-lotus-divider {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  margin-top: 12px;
-  font-family: var(--font-devanagari-serif);
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: #FFF3D9;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.9), 0 2px 4px rgba(0, 0, 0, 0.9);
+  gap: 12px;
+  margin-top: 6px;
+  width: 100%;
+  max-width: 220px;
 }
 
-.loader-tagline-text span:first-child,
-.loader-tagline-text span:last-child {
-  color: #FFD875;
-  font-size: 0.8rem;
+.lotus-divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #FFD875, transparent);
+  position: relative;
+}
+
+.loader-lotus-svg {
+  width: 26px;
+  height: 19px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 6px rgba(255, 216, 117, 0.7));
 }
 
 @media (max-width: 600px) {
   .royal-loader-screen {
-    padding-bottom: 16vh;
+    padding-bottom: 15vh;
   }
   .loader-counter-text {
-    font-size: 1.15rem;
+    font-size: 1.25rem;
+  }
+  .loader-ornate-bar-container {
+    max-width: 320px;
+  }
+  .loader-filigree-wing {
+    width: 30px;
+    height: 24px;
   }
   .loader-filigree-bar-frame {
-    max-width: 290px;
-    height: 16px;
+    height: 18px;
   }
   .loader-tagline-text {
-    font-size: 0.92rem;
+    font-size: 0.95rem;
   }
 }

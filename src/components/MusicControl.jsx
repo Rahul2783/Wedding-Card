@@ -11,30 +11,33 @@ export default function MusicControl({
   const audioRef = useRef(null);
   const [usingFallbackSynth, setUsingFallbackSynth] = useState(false);
 
+  const tryPlayAudio = async () => {
+    if (!audioRef.current) return false;
+    try {
+      audioRef.current.volume = 0.75;
+      await audioRef.current.play();
+      setIsPlaying(true);
+      setUsingFallbackSynth(false);
+      return true;
+    } catch (err) {
+      return false;
+    }
+  };
+
   // Toggle music playback
   const handleToggle = async () => {
-    if (isPlaying) {
-      if (audioRef.current && !usingFallbackSynth) {
-        audioRef.current.pause();
-      }
+    if (!audioRef.current) return;
+
+    if (!audioRef.current.paused || isPlaying) {
+      audioRef.current.pause();
       stopSynthesizedShehnai();
       setIsPlaying(false);
       setUsingFallbackSynth(false);
     } else {
-      if (audioRef.current) {
-        try {
-          await audioRef.current.play();
-          setIsPlaying(true);
-          setUsingFallbackSynth(false);
-        } catch (err) {
-          console.warn('HTML5 Audio play error, engaging authentic Web Audio synthesis:', err);
-          const started = startSynthesizedShehnai();
-          if (started) {
-            setIsPlaying(true);
-            setUsingFallbackSynth(true);
-          }
-        }
-      } else {
+      audioRef.current.volume = 0.75;
+      const played = await tryPlayAudio();
+      if (!played) {
+        console.warn('HTML5 Audio play error, engaging authentic Web Audio synthesis');
         const started = startSynthesizedShehnai();
         if (started) {
           setIsPlaying(true);
@@ -44,17 +47,55 @@ export default function MusicControl({
     }
   };
 
-  // Sync with prop changes
+  // Immediate autoplay attempt & Global User-Interaction capture listener
   useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = 0.75;
+    }
+
+    // 1. Try immediate autoplay
+    tryPlayAudio();
+
+    // 2. Set up global capture listeners on window for instant unlock on first interaction
+    const handleFirstGesture = async () => {
+      if (audioRef.current && audioRef.current.paused) {
+        audioRef.current.volume = 0.75;
+        const played = await tryPlayAudio();
+        if (played) {
+          removeGestureListeners();
+        }
+      }
+    };
+
+    const removeGestureListeners = () => {
+      ['pointerdown', 'touchstart', 'click', 'keydown', 'wheel'].forEach((type) => {
+        window.removeEventListener(type, handleFirstGesture, true);
+      });
+    };
+
+    ['pointerdown', 'touchstart', 'click', 'keydown', 'wheel'].forEach((type) => {
+      window.addEventListener(type, handleFirstGesture, { capture: true, passive: true });
+    });
+
+    return () => {
+      removeGestureListeners();
+    };
+  }, []);
+
+  // Sync with prop changes when triggered by external buttons (Navbar, etc.)
+  useEffect(() => {
+    if (!audioRef.current) return;
+
+    audioRef.current.volume = 0.75;
+
     if (isPlaying) {
-      if (audioRef.current) {
-        audioRef.current.play().catch(() => {
-          const started = startSynthesizedShehnai();
-          if (started) setUsingFallbackSynth(true);
-        });
+      if (audioRef.current.paused) {
+        tryPlayAudio();
       }
     } else {
-      if (audioRef.current) audioRef.current.pause();
+      if (!audioRef.current.paused) {
+        audioRef.current.pause();
+      }
       stopSynthesizedShehnai();
       setUsingFallbackSynth(false);
     }
@@ -74,9 +115,13 @@ export default function MusicControl({
     <>
       <audio
         ref={audioRef}
-        src="/wedding-music.mp3"
+        src="/images/Song.mp3"
         loop
-        preload="metadata"
+        preload="auto"
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => {
+          if (!usingFallbackSynth) setIsPlaying(false);
+        }}
         onEnded={() => setIsPlaying(false)}
       />
 

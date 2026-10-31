@@ -73,7 +73,7 @@
 /* Left Panel: Bal Aagrah Content */
 .bal-panel-content {
   display: grid;
-  grid-template-columns: 75px 1fr 75px;
+  grid-template-columns: 105px 1fr 80px;
   align-items: center;
   gap: 12px;
   flex: 1;
@@ -89,11 +89,14 @@
 .dholak-img,
 .shehnai-img {
   width: 100%;
-  max-width: 70px;
+  max-width: 80px;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.7));
-  mix-blend-mode: lighten;
+  filter: drop-shadow(0 3px 8px rgba(255, 216, 117, 0.4));
+}
+
+.dholak-img {
+  max-width: 110px;
 }
 
 .bal-rhyme-center {

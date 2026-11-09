@@ -20,6 +20,7 @@ dist-ssr/
 .env.*.local
 
 # Editor directories and files
+.freebuff/
 .vscode/*
 !.vscode/extensions.json
 .idea/

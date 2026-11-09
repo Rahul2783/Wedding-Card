@@ -48,6 +48,44 @@
   z-index: 5;
 }
 
+/* Diya Flanking Placement */
+.hero-diya-flank-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 960px;
+  margin: 18px auto 0;
+  padding: 0 20px;
+  pointer-events: none;
+}
+
+.hero-diya-left,
+.hero-diya-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-diya-tag {
+  font-family: var(--font-devanagari-serif, serif);
+  font-size: 0.85rem;
+  color: var(--gold-bright);
+  letter-spacing: 1px;
+  opacity: 0.9;
+  text-shadow: 0 0 10px rgba(255, 216, 117, 0.4);
+}
+
+@media (max-width: 600px) {
+  .hero-diya-flank-row {
+    padding: 0 8px;
+    margin-top: 12px;
+  }
+  .hero-diya-tag {
+    font-size: 0.72rem;
+  }
+}
+
 .hero-bell {
   position: absolute;
   top: 10px;
@@ -99,8 +137,8 @@
 }
 
 .ganesha-crest {
-  width: 140px;
-  height: 140px;
+  width: 175px;
+  height: 180px;
   border-radius: 0;
   border: none;
   background: none;
@@ -124,12 +162,12 @@
   height: 100%;
   object-fit: contain;
   display: block;
-  filter: brightness(0.86) contrast(1.02) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 6px rgba(212, 166, 74, 0.25));
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.65)) drop-shadow(0 0 8px rgba(255, 216, 117, 0.3));
   transition: filter 0.3s ease;
 }
 
 .ganesha-crest:hover .ganesha-crest-img {
-  filter: brightness(0.95) drop-shadow(0 4px 14px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 12px rgba(255, 216, 117, 0.5));
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 14px rgba(255, 216, 117, 0.55));
 }
 
 .hero-shloka-text {
@@ -172,28 +210,41 @@
 
 /* Arched Pillars for Groom & Bride */
 .mandap-arch-pillar {
-  background: linear-gradient(180deg, rgba(67, 0, 8, 0.88) 0%, rgba(30, 0, 5, 0.96) 100%);
-  border: 1.5px solid var(--gold-antique);
-  border-radius: var(--radius-arch);
-  padding: 32px 18px 24px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7), inset 0 0 16px rgba(212, 166, 74, 0.15);
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
   position: relative;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .mandap-arch-pillar:hover {
   transform: translateY(-4px);
-  border-color: var(--gold-bright);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 216, 117, 0.3);
+  border-color: transparent;
+  box-shadow: none;
 }
 
 .mandap-arch-pillar::before {
-  content: '';
-  position: absolute;
-  inset: 6px;
-  border: 1px dashed rgba(212, 166, 74, 0.35);
-  border-radius: calc(140px - 6px) calc(140px - 6px) 8px 8px;
-  pointer-events: none;
+  display: none;
+}
+
+.mandap-card-img {
+  width: 100%;
+  height: auto;
+  max-height: 490px;
+  object-fit: contain;
+  display: block;
+  filter: contrast(1.03) saturate(1.05) drop-shadow(0 12px 28px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 6px rgba(255, 230, 140, 0.45)) drop-shadow(0 0 16px rgba(255, 216, 117, 0.35));
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), filter 0.35s ease;
+}
+
+.mandap-arch-pillar:hover .mandap-card-img {
+  transform: scale(1.02);
+  filter: contrast(1.05) saturate(1.08) drop-shadow(0 16px 34px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 10px rgba(255, 235, 160, 0.6)) drop-shadow(0 0 24px rgba(255, 216, 117, 0.5));
 }
 
 .arch-role-tag {
@@ -289,33 +340,44 @@
 
 .couple-halo-frame {
   position: relative;
-  width: 270px;
-  height: 330px;
-  border-radius: 140px 140px 20px 20px;
-  padding: 6px;
-  background: var(--gold-gradient);
-  box-shadow: 0 0 35px rgba(255, 216, 117, 0.4), 0 12px 35px rgba(0, 0, 0, 0.9);
-  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.35s ease;
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  border-radius: 0;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .couple-halo-frame:hover {
-  transform: scale(1.04) translateY(-3px);
-  box-shadow: 0 0 45px rgba(255, 216, 117, 0.6), 0 16px 40px rgba(0, 0, 0, 0.95);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: none;
 }
 
 .couple-portrait-img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
-  border-radius: 134px 134px 14px 14px;
-  border: 2px solid var(--maroon-dark);
+  height: auto;
+  max-height: 480px;
+  object-fit: contain;
+  border: none;
+  border-radius: 0;
   display: block;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.75));
+  transition: filter 0.35s ease;
+}
+
+.couple-halo-frame:hover .couple-portrait-img {
+  filter: drop-shadow(0 16px 34px rgba(0, 0, 0, 0.85));
 }
 
 .varmala-badge {
   position: absolute;
-  bottom: -14px;
+  bottom: 0px;
   left: 50%;
   transform: translateX(-50%);
   background: linear-gradient(135deg, #7a0815 0%, #430008 100%);
@@ -328,9 +390,10 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.7), 0 0 10px rgba(255, 216, 117, 0.3);
   white-space: nowrap;
   line-height: 1.2;
+  z-index: 2;
 }
 
 .varmala-badge .varmala-text {
@@ -458,14 +521,24 @@
   .hero-mandap-stage {
     grid-template-columns: 1fr;
     gap: 24px;
-    max-width: 440px;
+    max-width: 360px;
+  }
+  .arch-groom {
+    order: 1;
   }
   .mandap-center-portrait {
-    order: -1;
+    order: 2;
+  }
+  .arch-bride {
+    order: 3;
   }
   .couple-halo-frame {
-    width: 230px;
-    height: 280px;
+    width: 100%;
+    max-width: 320px;
+  }
+  .mandap-card-img,
+  .couple-portrait-img {
+    max-height: 420px;
   }
   .hero-main-title {
     font-size: 3rem;
@@ -476,9 +549,13 @@
   .hero-royal-section {
     padding: 95px 12px 40px;
   }
+  .hero-mandap-stage {
+    max-width: 300px;
+    gap: 18px;
+  }
   .ganesha-crest {
-    width: 115px;
-    height: 115px;
+    width: 135px;
+    height: 145px;
     padding: 0;
   }
   .hero-main-title {
@@ -489,8 +566,12 @@
     margin-bottom: 20px;
   }
   .couple-halo-frame {
-    width: 200px;
-    height: 250px;
+    width: 100%;
+    max-width: 270px;
+  }
+  .mandap-card-img,
+  .couple-portrait-img {
+    max-height: 380px;
   }
   .arch-person-name {
     font-size: 1.7rem;

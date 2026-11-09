@@ -2,40 +2,83 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MapPin, PhoneCall, ExternalLink, Calendar, Sparkles } from 'lucide-react';
+import AnimatedDiya from './AnimatedDiya';
+import { useReducedMotion } from '../hooks/useReducedMotion';
 import './VenueSection.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function VenueSection({ lang, venue, weddingDate }) {
   const venueRef = useRef(null);
+  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
+    if (prefersReducedMotion) return;
+
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        '.venue-card-wrapper',
-        { opacity: 0, y: 35 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.9,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: venueRef.current,
-            start: 'top 80%',
-            once: true,
-          },
-        }
-      );
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: venueRef.current,
+          start: 'top 80%',
+          once: true,
+        },
+        defaults: { ease: 'power2.out' },
+      });
+
+      // 1. Section Header Reveal
+      tl.fromTo(
+        '.venue-header-group .section-eyebrow',
+        { opacity: 0, y: -10 },
+        { opacity: 1, y: 0, duration: 0.6 }
+      )
+        .fromTo(
+          '.venue-header-group .section-title',
+          { opacity: 0, y: 18 },
+          { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' },
+          '-=0.3'
+        )
+        .fromTo(
+          '.venue-header-group .ornamental-divider',
+          { opacity: 0, scale: 0.8 },
+          { opacity: 1, scale: 1, duration: 0.5 },
+          '-=0.3'
+        )
+        .fromTo(
+          '.venue-header-group .section-subtitle',
+          { opacity: 0, y: 12 },
+          { opacity: 1, y: 0, duration: 0.6 },
+          '-=0.3'
+        )
+        // 2. Main Venue Card Entrance
+        .fromTo(
+          '.venue-card-wrapper',
+          { opacity: 0, y: 35, scale: 0.97 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: 'power3.out' },
+          '-=0.2'
+        )
+        // 3. Image and Info Columns Stagger
+        .fromTo(
+          '.venue-image-box',
+          { opacity: 0, x: -25 },
+          { opacity: 1, x: 0, duration: 0.75 },
+          '-=0.5'
+        )
+        .fromTo(
+          '.venue-info-box > *',
+          { opacity: 0, y: 15 },
+          { opacity: 1, y: 0, duration: 0.6, stagger: 0.1 },
+          '-=0.4'
+        );
     }, venueRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [prefersReducedMotion]);
 
   return (
     <section id="venue" className="venue-royal-section" ref={venueRef}>
       <div className="section-shell">
         {/* Section Header */}
-        <div className="section-header">
+        <div className="section-header venue-header-group">
           <div className="section-eyebrow">
             <span>✦</span>
             <span>{lang === 'hi' ? 'शुभ विवाह स्थल' : 'Wedding Venue'}</span>

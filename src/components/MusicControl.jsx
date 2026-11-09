@@ -10,16 +10,33 @@ export default function MusicControl({
 }) {
   const audioRef = useRef(null);
   const [usingFallbackSynth, setUsingFallbackSynth] = useState(false);
+  // Tracks the last media command issued so lagging play/pause events from a
+  // superseded command are ignored instead of flipping isPlaying and feeding
+  // an infinite play() <-> pause() feedback loop (which re-renders the whole
+  // App and used to keep the loading screen from ever dismissing).
+  const cmdRef = useRef(null); // 'play' | 'pause' | null
+
+  const issuePause = () => {
+    if (audioRef.current && !audioRef.current.paused) {
+      cmdRef.current = 'pause';
+      audioRef.current.pause();
+    }
+  };
 
   const tryPlayAudio = async () => {
     if (!audioRef.current) return false;
     try {
       audioRef.current.volume = 0.75;
+      cmdRef.current = 'play';
       await audioRef.current.play();
       setIsPlaying(true);
       setUsingFallbackSynth(false);
       return true;
     } catch (err) {
+      // Playback did not start; no event will arrive to clear the flag,
+      // and the UI must reflect reality (e.g. autoplay blocked).
+      if (cmdRef.current === 'play') cmdRef.current = null;
+      setIsPlaying(false);
       return false;
     }
   };
@@ -29,7 +46,7 @@ export default function MusicControl({
     if (!audioRef.current) return;
 
     if (!audioRef.current.paused || isPlaying) {
-      audioRef.current.pause();
+      issuePause();
       stopSynthesizedShehnai();
       setIsPlaying(false);
       setUsingFallbackSynth(false);
@@ -93,9 +110,7 @@ export default function MusicControl({
         tryPlayAudio();
       }
     } else {
-      if (!audioRef.current.paused) {
-        audioRef.current.pause();
-      }
+      issuePause();
       stopSynthesizedShehnai();
       setUsingFallbackSynth(false);
     }
@@ -118,8 +133,22 @@ export default function MusicControl({
         src="/images/Song.mp3"
         loop
         preload="auto"
-        onPlay={() => setIsPlaying(true)}
+        onPlay={() => {
+          // Stale confirmation of a play that a later pause() superseded:
+          // keep cmdRef='pause' so the pending onPause event still clears it.
+          if (cmdRef.current === 'pause') return;
+          cmdRef.current = null;
+          setIsPlaying(true);
+        }}
         onPause={() => {
+          // Stale pause event from before our own play() command — ignore it,
+          // otherwise isPlaying flips false and the sync effect issues yet
+          // another pause(), restarting the feedback loop.
+          if (cmdRef.current === 'play') {
+            cmdRef.current = null;
+            return;
+          }
+          cmdRef.current = null;
           if (!usingFallbackSynth) setIsPlaying(false);
         }}
         onEnded={() => setIsPlaying(false)}

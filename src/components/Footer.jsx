@@ -1,27 +1,75 @@
-import React from 'react';
-import { ArrowUp, Heart } from 'lucide-react';
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ArrowUp } from 'lucide-react';
+import AnimatedDiya from './AnimatedDiya';
+import FloatingPetals from './FloatingPetals';
+import { useReducedMotion } from '../hooks/useReducedMotion';
 import './Footer.css';
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Footer({ lang, weddingConfig }) {
+  const footerRef = useRef(null);
+  const prefersReducedMotion = useReducedMotion();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  useEffect(() => {
+    if (prefersReducedMotion) return;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        '.footer-container > *',
+        { opacity: 0, y: 22 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          stagger: 0.1,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: footerRef.current,
+            start: 'top 85%',
+            once: true,
+          },
+        }
+      );
+    }, footerRef);
+
+    return () => ctx.revert();
+  }, [prefersReducedMotion]);
+
   return (
-    <footer className="royal-footer">
+    <footer className="royal-footer" ref={footerRef}>
+      {/* Subtle gentle drifting petals for the closing moments */}
+      <FloatingPetals count={5} />
+
       <div className="footer-container">
         {/* Sacred Ganesha Symbol */}
-        <div className="footer-crest" onClick={scrollToTop} role="button" tabIndex={0} title="श्री गणेशाय नमः • ऊपर जाएँ">
+        <div
+          className="footer-crest"
+          onClick={scrollToTop}
+          role="button"
+          tabIndex={0}
+          title="श्री गणेशाय नमः • ऊपर जाएँ"
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') scrollToTop();
+          }}
+        >
           <img
-            src="/images/ganesh-ji.png"
+            src="/images/New_GaneshJi.png"
             alt="श्री गणेश"
             className="footer-ganesha-img"
             onError={(e) => {
-              e.currentTarget.src = '/images/ganesh-ji.avif';
+              e.currentTarget.src = '/images/ganesh-ji.png';
             }}
           />
         </div>
 
+        {/* Bride & Groom Names */}
         <h3 className="footer-couple-name">
           सचिन साहू (शनि) <i>संग</i> अंजलि साहू
         </h3>
@@ -29,10 +77,29 @@ export default function Footer({ lang, weddingConfig }) {
           ॥ 09 दिसंबर 2026, बुधवार • हरी प्रिया गार्डन, भरुआ सुमेरपुर ॥
         </p>
 
-        <div className="ornamental-divider">
-          <span className="divider-line" />
-          <span className="divider-symbol">卐</span>
-          <span className="divider-line" />
+        {/* Ornamental Divider with Glowing Diyas */}
+        <div className="footer-diya-flank-row" aria-hidden="true">
+          <AnimatedDiya size="small" delay={0.2} />
+          <div className="ornamental-divider" style={{ margin: 0 }}>
+            <span className="divider-line" />
+            <span className="divider-symbol">卐</span>
+            <span className="divider-line" />
+          </div>
+          <AnimatedDiya size="small" delay={0.7} />
+        </div>
+
+        {/* Sacred Hindi Blessing Card */}
+        <div className="footer-blessing-box">
+          <p className="footer-welcome-poetry">
+            {lang === 'hi'
+              ? weddingConfig.poetry.welcomeHi
+              : weddingConfig.poetry.welcomeEn}
+          </p>
+          <p className="footer-blessing-prose">
+            {lang === 'hi'
+              ? weddingConfig.poetry.blessingHi
+              : weddingConfig.poetry.blessingEn}
+          </p>
         </div>
 
         <p className="footer-note-text">

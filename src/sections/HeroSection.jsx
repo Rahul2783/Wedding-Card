@@ -1,8 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Heart, Send, BookOpen } from 'lucide-react';
 import Countdown from '../components/Countdown';
+import FloatingPetals from '../components/FloatingPetals';
+import AnimatedDiya from '../components/AnimatedDiya';
+import { useReducedMotion } from '../hooks/useReducedMotion';
 import './HeroSection.css';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function HeroSection({
   lang,
@@ -13,57 +19,103 @@ export default function HeroSection({
   onOpenGuestbook,
 }) {
   const heroRef = useRef(null);
+  const bgRef = useRef(null);
+  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // 1. Entrance timeline
       const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
       tl.fromTo(
         '.hero-ganesha-badge',
         { opacity: 0, y: -25, scale: 0.9 },
-        { opacity: 1, y: 0, scale: 1, duration: 0.9 }
+        { opacity: 1, y: 0, scale: 1, duration: 0.85 }
       )
         .fromTo(
           '.hero-main-title',
-          { opacity: 0, scale: 0.9 },
-          { opacity: 1, scale: 1, duration: 0.8 },
-          '-=0.5'
+          { opacity: 0, scale: 0.92, y: 15 },
+          {
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            duration: 0.8,
+            onComplete: () => {
+              if (!prefersReducedMotion) {
+                // One-time royal gold shimmer glow
+                gsap.fromTo(
+                  '.hero-main-title',
+                  { filter: 'drop-shadow(0 0 35px rgba(255, 216, 117, 0.85))' },
+                  {
+                    filter: 'drop-shadow(0 0 16px rgba(255, 216, 117, 0.4))',
+                    duration: 1.4,
+                    ease: 'power2.out',
+                  }
+                );
+              }
+            },
+          },
+          '-=0.4'
         )
         .fromTo(
           '.hero-tagline',
           { opacity: 0, y: 15 },
           { opacity: 1, y: 0, duration: 0.6 },
-          '-=0.4'
+          '-=0.3'
         )
         .fromTo(
           ['.arch-groom', '.arch-center-couple', '.arch-bride'],
-          { opacity: 0, y: 25 },
-          { opacity: 1, y: 0, duration: 0.8, stagger: 0.12 },
+          { opacity: 0, y: 25, scale: 0.96 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.8, stagger: 0.14 },
           '-=0.3'
+        )
+        .fromTo(
+          '.hero-diya-flank-row',
+          { opacity: 0, y: 18 },
+          { opacity: 1, y: 0, duration: 0.7 },
+          '-=0.2'
         )
         .fromTo(
           '.hero-interactive-strip',
           { opacity: 0, y: 15 },
           { opacity: 1, y: 0, duration: 0.7 },
-          '-=0.2'
+          '-=0.3'
         );
+
+      // 2. Parallax Mandap Background (subtle & restrained)
+      if (!prefersReducedMotion && bgRef.current) {
+        gsap.to(bgRef.current, {
+          yPercent: 12,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 0.5,
+          },
+        });
+      }
     }, heroRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [prefersReducedMotion]);
 
-  const { groom, bride, date } = weddingConfig;
+  const { date } = weddingConfig;
 
   return (
     <section id="home" className="hero-royal-section" ref={heroRef}>
-      {/* Background with illuminated temple mandap */}
+      {/* Background with illuminated temple mandap and subtle parallax */}
       <div className="hero-bg-wrapper">
         <div
+          ref={bgRef}
           className="hero-mandap-bg"
           style={{ backgroundImage: `url('/images/royal-mandap.jpg')` }}
         />
         <div className="hero-gradient-overlay" />
       </div>
+
+      {/* Subtle Floating Flower Petals Layer */}
+      <FloatingPetals count={8} />
 
       {/* Hanging Brass Bells with Swing Animation */}
       <div className="hero-toran-layer">
@@ -82,11 +134,11 @@ export default function HeroSection({
         <div className="hero-ganesha-badge">
           <div className="ganesha-crest">
             <img
-              src="/images/ganesh-ji.png"
+              src="/images/New_GaneshJi.png"
               alt="भगवान श्री गणेश"
               className="ganesha-crest-img"
               onError={(e) => {
-                e.currentTarget.src = '/images/ganesh-ji.avif';
+                e.currentTarget.src = '/images/ganesh-ji.png';
               }}
             />
           </div>
@@ -105,37 +157,20 @@ export default function HeroSection({
         <div className="hero-mandap-stage">
           {/* Left Arch: Groom (वर) */}
           <div className="mandap-arch-pillar arch-groom">
-            <div className="arch-inner-content">
-              <span className="arch-role-tag">
-                <span className="tag-text">{lang === 'hi' ? 'वर' : 'Groom'}</span>
-              </span>
-              <h2 className="arch-person-name">{groom.nameHi}</h2>
-              <span className="arch-nickname">({groom.nicknameHi})</span>
-              <div className="arch-ornament-line">
-                <span className="line" />
-                <span className="dot">✦</span>
-                <span className="line" />
-              </div>
-              <p className="arch-relation">
-                {lang === 'hi' ? 'सुपुत्र :' : 'Son of :'} {groom.fatherHi}
-              </p>
-              <p className="arch-relation-sub">
-                {lang === 'hi' ? 'एवं' : '&'} {groom.motherHi}
-              </p>
-              <p className="arch-grand-relation">
-                {lang === 'hi' ? 'सुपौत्र :' : 'Grandson of :'} {groom.grandfatherHi}
-              </p>
-            </div>
+            <img
+              src="/images/Var.png"
+              alt="वर: सचिन साहू (शनि) - सुपुत्र: श्री राज कुमार साहू (राजू) एवं श्रीमती सावित्री देवी, सुपौत्र: श्री रामेश्वर प्रसाद साहू"
+              className="mandap-card-img"
+            />
           </div>
 
           {/* Center: Bride & Groom Royal Portrait */}
           <div className="mandap-center-portrait arch-center-couple">
             <div className="couple-halo-frame">
-              <div className="halo-glow" />
               <img
-                src="/images/couple-illustration.jpg"
-                alt="Sachin and Anjali Royal Wedding"
-                className="couple-portrait-img"
+                src="/images/Frame.png"
+                alt="सचिन एवं अंजलि - परिणय सूत्र"
+                className="couple-portrait-img couple-frame-art"
               />
               <div className="varmala-badge">
                 <Heart size={14} className="varmala-heart" />
@@ -146,29 +181,23 @@ export default function HeroSection({
 
           {/* Right Arch: Bride (वधू) */}
           <div className="mandap-arch-pillar arch-bride">
-            <div className="arch-inner-content">
-              <span className="arch-role-tag">
-                <span className="tag-text">{lang === 'hi' ? 'वधू' : 'Bride'}</span>
-              </span>
-              <h2 className="arch-person-name">{bride.nameHi}</h2>
-              <span className="arch-nickname">
-                {lang === 'hi' ? '(अंजलि)' : '(Anjali)'}
-              </span>
-              <div className="arch-ornament-line">
-                <span className="line" />
-                <span className="dot">✦</span>
-                <span className="line" />
-              </div>
-              <p className="arch-relation">
-                {lang === 'hi' ? 'सुपुत्री :' : 'Daughter of :'} {bride.fatherHi}
-              </p>
-              <p className="arch-relation-sub">
-                {lang === 'hi' ? 'एवं' : '&'} {bride.motherHi}
-              </p>
-              <p className="arch-grand-relation">
-                {lang === 'hi' ? 'सुपौत्री :' : 'Granddaughter of :'} {bride.grandfatherHi}
-              </p>
-            </div>
+            <img
+              src="/images/Vadhu.png"
+              alt="वधू: अंजलि साहू - सुपुत्री: श्री राजेश साहू एवं श्रीमती जगरानी देवी, सुपौत्री: स्व. श्री हरिश्चन्द्र साहू"
+              className="mandap-card-img"
+            />
+          </div>
+        </div>
+
+        {/* Traditional Glowing Diyas Flanking the Mandap Stage */}
+        <div className="hero-diya-flank-row" aria-hidden="true">
+          <div className="hero-diya-left">
+            <AnimatedDiya size="medium" delay={0.2} />
+            <span className="hero-diya-tag">॥ शुभ ॥</span>
+          </div>
+          <div className="hero-diya-right">
+            <span className="hero-diya-tag">॥ लाभ ॥</span>
+            <AnimatedDiya size="medium" delay={0.8} />
           </div>
         </div>
 

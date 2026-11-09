@@ -21,6 +21,7 @@ import {
 } from './utils/flowerShower';
 import './styles/global.css';
 import './styles/animations.css';
+import './styles/wedding.css';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);

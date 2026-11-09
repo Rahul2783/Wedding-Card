@@ -1,0 +1,52 @@
+/* ========================================================
+   ROYAL WEDDING THEME & GOLD SHIMMER STYLES
+   Sachin Sahu (Shani) & Anjali Sahu Wedding
+   ======================================================== */
+
+@import './global.css';
+@import './animations.css';
+
+/* Royal Devanagari Gold Title Shimmer */
+.royal-gold-shimmer-title {
+  background: linear-gradient(
+    120deg,
+    #ffd875 0%,
+    #fff8e7 25%,
+    #ffd875 50%,
+    #d4a64a 75%,
+    #ffd875 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: royalTitleShine 6s ease-in-out infinite;
+}
+
+@keyframes royalTitleShine {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Subtle Temple Arch Border Pattern */
+.royal-mandap-arch-pattern {
+  position: relative;
+  border: 1px solid rgba(212, 166, 74, 0.4);
+  border-radius: var(--radius-arch, 140px 140px 12px 12px);
+  background: radial-gradient(
+    ellipse at 50% 20%,
+    rgba(67, 0, 8, 0.95) 0%,
+    rgba(37, 0, 6, 0.98) 100%
+  );
+  box-shadow: 0 12px 35px rgba(18, 0, 3, 0.7);
+}
+
+/* Smooth Focus & Accessibility Outlines */
+:focus-visible {
+  outline: 2px solid #ffd875;
+  outline-offset: 3px;
+}
+

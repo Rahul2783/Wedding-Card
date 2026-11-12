@@ -64,12 +64,18 @@
   margin-top: 4px;
 }
 
+/* Guestbook Stream Container */
+.guestbook-stream-container {
+  display: flex;
+  flex-direction: column;
+}
+
 /* Wishes Stream */
 .wishes-stream {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  max-height: 520px;
+  max-height: 560px;
   overflow-y: auto;
   padding-right: 6px;
 }
@@ -79,23 +85,43 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  flex-shrink: 0;
+  min-height: fit-content;
 }
 
 .wish-top-row {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  gap: 12px;
+}
+
+.author-details {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
 }
 
 .author-name {
   font-size: 1.15rem;
   color: var(--gold-bright);
-  line-height: 1.2;
+  line-height: 1.25;
+  word-break: break-word;
 }
 
 .author-city {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   color: var(--gold-antique);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  line-height: 1.2;
+}
+
+.city-pin-icon {
+  font-size: 0.75rem;
+  opacity: 0.9;
 }
 
 .wish-time-badge {
@@ -110,13 +136,18 @@
   justify-content: center;
   position: relative;
   top: 0.5px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .wish-message-body {
-  font-size: 0.95rem;
+  font-size: 0.96rem;
   color: var(--ivory-warm);
-  line-height: 1.5;
+  line-height: 1.55;
   font-style: italic;
+  word-break: break-word;
+  white-space: pre-wrap;
+  margin: 2px 0 0;
 }
 
 .wish-bottom-ornament {
@@ -125,6 +156,7 @@
   gap: 6px;
   border-top: 1px dashed rgba(212, 166, 74, 0.2);
   padding-top: 8px;
+  margin-top: 2px;
 }
 
 .tiny-heart {
@@ -136,6 +168,151 @@
   font-size: 0.75rem;
   color: var(--gold-antique);
   font-weight: 600;
+}
+
+.see-all-wishes-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.btn-see-all-wishes {
+  padding: 10px 24px 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--gold-bright);
+  background: rgba(45, 2, 7, 0.75);
+  border: 1px solid rgba(212, 166, 74, 0.5);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+}
+
+.btn-see-all-wishes:hover {
+  background: rgba(212, 166, 74, 0.18);
+  border-color: var(--gold-bright);
+  color: #fff9ed;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 166, 74, 0.25);
+}
+
+.btn-see-all-wishes:active {
+  transform: translateY(0);
+}
+
+.write-submit-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  filter: grayscale(0.2);
+}
+
+/* Anti-spam Honeypot Field (Hidden from real visitors) */
+.guestbook-hp-field {
+  position: absolute !important;
+  left: -9999px !important;
+  top: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+  overflow: hidden !important;
+}
+
+.guestbook-error-banner {
+  background: rgba(120, 10, 25, 0.85);
+  border: 1px solid #ff4d64;
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: #ffccd5;
+  font-size: 0.85rem;
+  line-height: 1.35;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.guestbook-error-banner button {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid #ffccd5;
+  color: #ffffff;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.guestbook-success-banner {
+  background: rgba(20, 80, 40, 0.85);
+  border: 1px solid #66bb6a;
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: #e8f5e9;
+  font-size: 0.85rem;
+  line-height: 1.35;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.guestbook-live-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  letter-spacing: 0.5px;
+  color: #81c784;
+  background: rgba(46, 125, 50, 0.2);
+  border: 1px solid rgba(129, 199, 132, 0.35);
+  border-radius: 12px;
+  padding: 2px 8px;
+  margin-left: auto;
+}
+
+.live-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #4caf50;
+  box-shadow: 0 0 6px #81c784;
+}
+
+.guestbook-loading-state,
+.guestbook-empty-state {
+  padding: 32px 20px;
+  text-align: center;
+  color: var(--gold-bright);
+  font-size: 0.95rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  border: 1px dashed rgba(212, 166, 74, 0.35);
+  border-radius: 10px;
+  background: rgba(30, 0, 5, 0.45);
+}
+
+.guestbook-loading-spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid rgba(255, 216, 117, 0.3);
+  border-top-color: var(--gold-bright);
+  border-radius: 50%;
+  animation: guestbookSpin 0.9s linear infinite;
+}
+
+@keyframes guestbookSpin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media (max-width: 900px) {
